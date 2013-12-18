@@ -256,6 +256,39 @@
 			<key>name</key>
 			<string>constant.numeric.haskell</string>
 		</dict>
+        <dict>
+            <key>begin</key>
+            <string>\b(foreign\s+import(?:\s+[a-zA-Z]+)+)\s+("[^"]+")\s+([a-z_][a-zA-Z0-9_']*|\([|!%$+\-.,=&lt;/&gt;]+\))\s*(::|∷)</string>
+            <key>beginCaptures</key>
+            <dict>
+                <key>1</key>
+                <dict>
+                    <key>name</key>
+                    <string>keyword.other.haskell</string>
+                </dict>
+                <key>2</key>
+                <dict>
+                    <key>name</key>
+                    <string>string.quoted.double.haskell</string>
+                </dict>
+                <key>3</key>
+                <dict>
+                    <key>name</key>
+                    <string>entity.name.function.haskell</string>
+                </dict>
+            </dict>
+            <key>end</key>
+            <string>($|;)</string>
+            <key>name</key>
+            <string>meta.import.foreign.haskell</string>
+            <key>patterns</key>
+            <array>
+                <dict>
+                    <key>include</key>
+                    <string>#type_signature</string>
+                </dict>
+            </array>
+        </dict>
 		<dict>
 			<key>captures</key>
 			<dict>
