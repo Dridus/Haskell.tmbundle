@@ -1,0 +1,110 @@
+[
+    { "keys": [":",":"], "command": "insert_snippet", "args": {"contents": "∷"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["-",">"], "command": "insert_snippet", "args": {"contents": "→"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["<","-"], "command": "insert_snippet", "args": {"contents": "←"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["=",">"], "command": "insert_snippet", "args": {"contents": "⇒"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["-", "<", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⤙"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": [">", "-", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⤚"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["-", "<", "<", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⤛"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": [">", ">", "-", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⤜"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["ctrl+shift+8"], "command": "insert_snippet", "args": {"contents": "★"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["|", ">", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⇾"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["<", "|", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⇽"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": [">", ">", "=", "ctrl+."], "command": "insert_snippet", "args": {"contents": "≫="}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": [">", ">", "ctrl+."], "command": "insert_snippet", "args": {"contents": "≫"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["=", "<", "<", "ctrl+."], "command": "insert_snippet", "args": {"contents": "=≪"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["<", "=", "<", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⊚"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["*", "*", "*", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⁂"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["+", "+", "+", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⧻"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["|", "|", "|", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⫴"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": [">", ">", ">", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⋙"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["<", "<", "<", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⋘"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": [".", "ctrl+."], "command": "insert_snippet", "args": {"contents": "∘"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["<", "*", ">", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⊛"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["+", "+", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⧺"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["=", "=", "ctrl+."], "command": "insert_snippet", "args": {"contents": "≡"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["/", "=", "ctrl+."], "command": "insert_snippet", "args": {"contents": "≢"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["<", "=", "ctrl+."], "command": "insert_snippet", "args": {"contents": "≤"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": [">", "=", "ctrl+."], "command": "insert_snippet", "args": {"contents": "≥"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["/", "ctrl+."], "command": "insert_snippet", "args": {"contents": "÷"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["*", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⋅"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["u", "n", "d", "e", "f", "i", "n", "e", "d", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⊥"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["(", "+", ")", "ctrl+."], "command": "insert_snippet", "args": {"contents": "⊕"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["(", "0", ")", "ctrl+."], "command": "insert_snippet", "args": {"contents": "∅"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["f", "o", "r", "a", "l", "l", "ctrl+."], "command": "insert_snippet", "args": {"contents": "∀"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["&", "&", "ctrl+."], "command": "insert_snippet", "args": {"contents": "∧"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["|", "|", "ctrl+."], "command": "insert_snippet", "args": {"contents": "∨"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    },
+    { "keys": ["n", "o", "t", "ctrl+."], "command": "insert_snippet", "args": {"contents": "¬"}, "context":
+        [{ "key": "selector", "operator": "equal", "operand": "source.haskell" }]
+    }
+]
