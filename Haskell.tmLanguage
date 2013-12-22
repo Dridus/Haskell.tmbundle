@@ -102,7 +102,12 @@
                 </dict>
             </dict>
             <key>end</key>
-            <string>\b(where)\b</string>
+            <string>(?x)(?=
+                  (\#|where|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
+                | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
+                | ^\s*[a-z_].*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
+            )
+            </string>
             <key>endCaptures</key>
             <dict>
                 <key>1</key>
