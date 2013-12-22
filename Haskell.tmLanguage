@@ -226,7 +226,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(deriving|where|type|case|of|let|in|newtype|default)\b</string>
+			<string>\b(deriving|where|type|case|of|let|in|default)\b</string>
 			<key>name</key>
 			<string>keyword.other.haskell</string>
 		</dict>
@@ -505,7 +505,7 @@
 		</dict>
         <dict>
             <key>begin</key>
-            <string>^\s*(data)\s+([A-Z]\w*)\b</string>
+            <string>^\s*(data|newtype)\s+([A-Z]\w*)\b</string>
             <key>beginCaptures</key>
             <dict>
                 <key>1</key>
