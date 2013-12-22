@@ -530,7 +530,7 @@
             <key>end</key>
             <string>(?x)(?=
                   (\#|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
-                | ^[^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
+                | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
                 | ^\s*[a-z_].*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
             )
             </string>
@@ -563,7 +563,7 @@
             <key>end</key>
             <string>(?x)(?=
                   (\#|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
-                | ^[^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
+                | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
                 | ^\s*[a-z_].*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
             )
             </string>
@@ -628,7 +628,7 @@
                     <key>end</key>
                     <string>(?x)(?=
                           (\#|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
-                        | ^[^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
+                        | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
                         | .*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
                     )
                     </string>
@@ -686,7 +686,7 @@
             <key>end</key>
             <string>(?x)(?=
                   ^(\#|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
-                | ^[^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
+                | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
                 | .*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
             )
             </string>
