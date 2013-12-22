@@ -845,6 +845,10 @@
                     <key>include</key>
                     <string>#comments</string>
                 </dict>
+                <dict>
+                    <key>include</key>
+                    <string>#preprocessor</string>
+                </dict>
             </array>
         </dict>
         <key>module_name</key>
