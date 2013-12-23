@@ -817,6 +817,47 @@
             <key>patterns</key>
             <array>
                 <dict>
+                    <key>name</key>
+                    <string>meta.declaration.constructors.exports.haskell</string>
+                    <key>begin</key>
+                    <string>\b([A-Z][a-zA-Z_'0-9]*)\s*\(</string>
+                    <key>beginCaptures</key>
+                    <dict>
+                        <key>1</key>
+                        <dict>
+                            <key>name</key>
+                            <string>storage.type.haskell</string>
+                        </dict>
+                    </dict>
+                    <key>patterns</key>
+                    <array>
+                        <dict>
+                            <key>match</key>
+                            <string>\.\.</string>
+                            <key>name</key>
+                            <string>keyword.other.haskell</string>
+                        </dict>
+                        <dict>
+                            <key>include</key>
+                            <string>#infix_op</string>
+                        </dict>
+                        <dict>
+                            <key>match</key>
+                            <string>[A-Z][a-zA-Z_'0-9]*</string>
+                            <key>name</key>
+                            <string>storage.type.haskell</string>
+                        </dict>
+                        <dict>
+                            <key>match</key>
+                            <string>[a-z][a-zA-Z_'0-9]*</string>
+                            <key>name</key>
+                            <string>entity.name.function.haskell</string>
+                        </dict>
+                    </array>
+                    <key>end</key>
+                    <string>\)</string>
+                </dict>
+                <dict>
                     <key>match</key>
                     <string>\b[a-z][a-zA-Z_'0-9]*</string>
                     <key>name</key>
