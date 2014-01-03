@@ -107,20 +107,16 @@
                     <key>name</key>
                     <string>variable.other.generic-type.haskell</string>
                     <key>match</key>
-                    <string>\b[a-z][a-zA-Z0-9_']*\b</string>
+                    <string>\b(?!default|where|data|newtype|type|class|instance|deriving)[a-z][a-zA-Z0-9_']*\b</string>
                 </dict>
             </array>
             <key>end</key>
             <string>(?x)(?=
-                  (\#|where|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
+                  (\#|where|default|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
                 | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
                 | ^\s*(?:default\s+)?[a-z_].*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
             )
             </string>
-            <key>endCaptures</key>
-            <dict>
-                <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
-            </dict>
         </dict>
         <dict>
             <key>begin</key>
@@ -190,10 +186,10 @@
             <key>patterns</key>
             <array>
                 <dict>
-                    <key>match</key>
-                    <string>\b[A-Z][a-zA-Z_']*</string>
                     <key>name</key>
                     <string>entity.other.inherited-class.haskell</string>
+                    <key>match</key>
+                    <string>\b[A-Z][a-zA-Z_']*</string>
                 </dict>
             </array>
             <key>end</key>
@@ -203,7 +199,7 @@
             <key>name</key>
             <string>keyword.other.haskell</string>
             <key>match</key>
-            <string>\b(deriving|where|case|of|let|in|default)\b</string>
+            <string>\b(where|case|of|let|in)\b</string>
         </dict>
         <dict>
             <key>name</key>
@@ -235,22 +231,21 @@
             <key>name</key>
             <string>meta.import.foreign.haskell</string>
             <key>begin</key>
-            <string>\b(foreign\s+import(?:\s+[a-zA-Z]+)+)\s+("[^"]*")\s+([a-z_][a-zA-Z0-9_']*|\([|!%$+\-.,=&lt;/&gt;]+\))\s*(::|∷)</string>
+            <string>^(\s*)\b(foreign\s+import(?:\s+[a-zA-Z]+)+)\s+("[^"]*")</string>
             <key>beginCaptures</key>
             <dict>
-                <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
-                <key>2</key> <dict><key>name</key><string>string.quoted.double.haskell</string></dict>
-                <key>3</key> <dict><key>name</key><string>entity.name.function.haskell</string></dict>
+                <key>2</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
+                <key>3</key> <dict><key>name</key><string>string.quoted.double.haskell</string></dict>
             </dict>
             <key>patterns</key>
             <array>
                 <dict>
                     <key>include</key>
-                    <string>#type_signature</string>
+                    <string>#function_signature</string>
                 </dict>
             </array>
             <key>end</key>
-            <string>($|;)</string>
+            <string>^(?!\1\s+\S|\s*$)</string>
         </dict>
         <dict>
             <key>name</key>
@@ -421,30 +416,25 @@
                 </dict>
             </array>
             <key>begin</key>
-            <string>^\s*(type)\s+((?:family|instance)\s+)?([(A-Z]\w*)\b</string>
+            <string>^(\s*)(type)\s+((?:family|instance)\s+)?([(A-Z]\w*)\b</string>
             <key>beginCaptures</key>
             <dict>
-                <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
                 <key>2</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
-                <key>3</key> <dict><key>name</key><string>entity.name.type.haskell</string></dict>
+                <key>3</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
+                <key>4</key> <dict><key>name</key><string>entity.name.type.haskell</string></dict>
             </dict>
             <key>end</key>
-            <string>(?x)(?=
-                  (\#|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
-                | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
-                | ^\s*(?:default\s+)?[a-z_].*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
-            )
-            </string>
+            <string>^(?!\1\s+\S|\s*$)</string>
         </dict>
         <dict>
             <key>name</key>
             <string>declaration.data.haskell</string>
             <key>begin</key>
-            <string>^\s*(data|newtype)\s+([(A-Z]\w*)\b</string>
+            <string>^(\s*)(data|newtype)\s+([(A-Z]\w*)\b</string>
             <key>beginCaptures</key>
             <dict>
-                <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
-                <key>2</key> <dict><key>name</key><string>entity.name.type.haskell</string></dict>
+                <key>2</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
+                <key>3</key> <dict><key>name</key><string>entity.name.type.haskell</string></dict>
             </dict>
             <key>patterns</key>
             <array>
@@ -471,62 +461,37 @@
                     </dict>
                 </dict>
                 <dict>
-                    <key>name</key>
-                    <string>meta.function.type-declaration.haskell</string>
-                    <key>begin</key>
-                    <string>[{,]?\s*(default\s+)?([A-Za-z_][a-zA-Z0-9_']*|\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|!%$+\-.,=&lt;/&gt;]+\))\s*(::|∷)</string>
-                    <key>beginCaptures</key>
-                    <dict>
-                        <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
-                        <key>2</key> <dict><key>name</key><string>entity.name.function.haskell</string></dict>
-                        <key>3</key> <dict><key>name</key><string>keyword.other.double-colon.haskell</string></dict>
-                    </dict>
-                    <key>patterns</key>
-                    <array>
-                        <dict>
-                            <key>include</key>
-                            <string>#type_signature</string>
-                        </dict>
-                    </array>
-                    <key>end</key>
-                    <string>(?x)(?=
-                          (\#|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
-                        | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
-                        | .*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
-                    )
-                    </string>
-                    <key>endCaptures</key>
-                    <dict>
-                        <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
-                        <key>2</key> <dict><key>name</key><string>keyword.operator.haskell</string></dict>
-                    </dict>
+                    <key>include</key>
+                    <string>#function_signature</string>
                 </dict>
-
-                <!--
-                <dict>
-                    <key>name</key>
-                    <string>string.quasiquoted.haskell</string>
-                    <key>match</key>
-                    <string>.*</string>
-                </dict>
-                -->
             </array>
             <key>end</key>
-            <string>(?x)(?=
-                  (\#|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
-                | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
-                | ^\s*[a-z_].*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
-            )
-            </string>
+            <string>^(?!\1\s+\S|\s*$)</string>
+        </dict>
+        <dict>
+            <key>begin</key>
+            <string>^(\s*)\b(default)\b</string>
+            <key>beginCaptures</key>
+            <dict>
+                <key>2</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+                <dict>
+                    <key>include</key>
+                    <string>#function_signature</string>
+                </dict>
+            </array>
+            <key>end</key>
+            <string>^(?!\1\s+\S|\s*$)</string>
         </dict>
         <dict>
             <key>name</key>
             <string>meta.function.type-declaration.haskell</string>
             <key>begin</key>
-            <string>^\s*(default\s+)?([A-Za-z_][a-zA-Z0-9_']*|\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|!%$+\-.,=&lt;/&gt;]+\))\s*(::|∷)</string>
+            <string>^(\s*)(\b[[:alpha:]_][[:alpha:][:digit:]_']*|\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|!%$+\.,=:&lt;/&gt;-]+\))\s*(::|∷)</string>
             <key>beginCaptures</key>
             <dict>
-                <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
                 <key>2</key> <dict><key>name</key><string>entity.name.function.haskell</string></dict>
                 <key>3</key> <dict><key>name</key><string>keyword.other.double-colon.haskell</string></dict>
             </dict>
@@ -538,17 +503,7 @@
                 </dict>
             </array>
             <key>end</key>
-            <string>(?x)(?=
-                  ^(\#|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
-                | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
-                | .*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
-            )
-            </string>
-            <key>endCaptures</key>
-            <dict>
-                <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
-                <key>2</key> <dict><key>name</key><string>keyword.operator.haskell</string></dict>
-            </dict>
+            <string>^(?!\1\s+\S|\s*$)</string>
         </dict>
         <dict>
             <key>name</key>
@@ -755,13 +710,45 @@
             <key>name</key>
             <string>meta.preprocessor.haskell</string>
             <key>begin</key>
-            <string>\#(ifdef|else|endif|if|define|include)\b</string>
+            <string>(\#(?:ifdef|else|endif|if|define|include))\b</string>
             <key>beginCaptures</key>
             <dict>
                 <key>1</key> <dict><key>name</key><string>keyword.preprocessor.haskell</string></dict>
             </dict>
             <key>end</key>
             <string>$</string>
+        </dict>
+
+        <key>function_signature</key>
+        <dict>
+            <key>patterns</key>
+            <array>
+                <dict>
+                    <key>name</key>
+                    <string>meta.function.type-declaration.haskell</string>
+                    <key>begin</key>
+                    <string>(\b[[:alpha:]_][[:alpha:][:digit:]_']*|\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|!%$+\.,=:&lt;/&gt;-]+\))\s*(::|∷)</string>
+                    <key>beginCaptures</key>
+                    <dict>
+                        <key>1</key> <dict><key>name</key><string>entity.name.function.haskell</string></dict>
+                        <key>2</key> <dict><key>name</key><string>keyword.other.double-colon.haskell</string></dict>
+                    </dict>
+                    <key>patterns</key>
+                    <array>
+                        <dict>
+                            <key>include</key>
+                            <string>#type_signature</string>
+                        </dict>
+                    </array>
+                    <key>end</key>
+                    <string>(?x)(?=
+                          ^(\#|foreign|default|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
+                        | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
+                        | .*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
+                    )
+                    </string>
+                </dict>
+            </array>
         </dict>
 
         <key>type_signature</key>
@@ -792,7 +779,7 @@
                     <key>name</key>
                     <string>variable.other.generic-type.haskell</string>
                     <key>match</key>
-                    <string>\b[a-z][a-zA-Z0-9_']*\b</string>
+                    <string>\b(?!(?:foreign|default|where|data|newtype|type|class|instance|deriving)\b)[a-z][a-zA-Z0-9_']*\b</string>
                 </dict>
                 <dict>
                     <key>name</key>
