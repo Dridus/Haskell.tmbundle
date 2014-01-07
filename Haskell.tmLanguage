@@ -489,7 +489,7 @@
             <key>name</key>
             <string>meta.function.type-declaration.haskell</string>
             <key>begin</key>
-            <string>^(\s*)(\b[[:alpha:]_][[:alpha:][:digit:]_']*|\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|!%$+\.,=:&lt;/&gt;-]+\))\s*(::|∷)</string>
+            <string>^(\s*)(\b[[:alpha:]_][[:alpha:][:digit:]_']*|\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|\\!*%$?~+:\-.=&lt;/&gt;]+\))\s*(::|∷)</string>
             <key>beginCaptures</key>
             <dict>
                 <key>2</key> <dict><key>name</key><string>entity.name.function.haskell</string></dict>
@@ -525,7 +525,7 @@
             <key>comment</key>
             <string>In case this regex seems overly general, note that Haskell permits the definition of new operators which can be nearly any string of punctuation characters, such as $%^&amp;*.</string>
             <key>match</key>
-            <string>[→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|!*%$?~+:\-.=&lt;/&gt;\\]+</string>
+            <string>[→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|\\!*%$?~+:\-.=&lt;/&gt;]+</string>
         </dict>
         <dict>
             <key>name</key>
@@ -587,7 +587,7 @@
             <key>name</key>
             <string>entity.name.function.infix.haskell</string>
             <key>match</key>
-            <string>(\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|!%*?$+:\-.=&lt;/&gt;]+\)|\(,+\))</string>
+            <string>(\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|\\!*%$?~+:\-.=&lt;/&gt;]+\)|\(,+\))</string>
         </dict>
 
         <key>module_exports</key>
@@ -727,7 +727,7 @@
                     <key>name</key>
                     <string>meta.function.type-declaration.haskell</string>
                     <key>begin</key>
-                    <string>(\b[[:alpha:]_][[:alpha:][:digit:]_']*|\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|!%$+\.,=:&lt;/&gt;-]+\))\s*(::|∷)</string>
+                    <string>(\b[[:alpha:]_][[:alpha:][:digit:]_']*|\([→←⇾⇽⤜⤛⤙⤚¬∨∧⊕⋅÷≥≤≢⧺⊥⊛⋘⋙⫴⧻⁂⊚≪≫★≡∘^|\\!*%$?~+:\-.=&lt;/&gt;]+\))\s*(::|∷)</string>
                     <key>beginCaptures</key>
                     <dict>
                         <key>1</key> <dict><key>name</key><string>entity.name.function.haskell</string></dict>
