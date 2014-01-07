@@ -461,6 +461,25 @@
                     </dict>
                 </dict>
                 <dict>
+                    <key>begin</key>
+                    <string>(?i)\b(deriving)\s*\(</string>
+                    <key>beginCaptures</key>
+                    <dict>
+                        <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
+                    </dict>
+                    <key>patterns</key>
+                    <array>
+                        <dict>
+                            <key>name</key>
+                            <string>storage.type.haskell</string>
+                            <key>match</key>
+                            <string>\b([[:upper:]][[:alnum:]]*)\b</string>
+                        </dict>
+                    </array>
+                    <key>end</key>
+                    <string>\)</string>
+                </dict>
+                <dict>
                     <key>include</key>
                     <string>#function_signature</string>
                 </dict>
@@ -745,6 +764,7 @@
                           ^(\#|foreign|default|data|newtype|type|class|instance|deriving)\s  # When a top level declaration starts
                         | ^\s*[(a-z_][^=]*(=)[\sa-zA-Z0-9_\(]                # A function declaration
                         | .*?(::|∷)[\sa-zA-Z0-9_\(]                # A function type
+                        | ^\s*}
                     )
                     </string>
                 </dict>
