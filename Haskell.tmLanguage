@@ -459,6 +459,10 @@
             <key>patterns</key>
             <array>
                 <dict>
+                    <key>include</key>
+                    <string>#type_signature</string>
+                </dict>
+                <dict>
                     <key>name</key>
                     <string>meta.record.haskell</string>
                     <key>match</key>
@@ -814,6 +818,17 @@
                     <string>keyword.other.big-arrow.haskell</string>
                     <key>match</key>
                     <string>(=&gt;|⇒)</string>
+                </dict>
+                <dict>
+                    <key>match</key>
+                    <string>(\bforall\s|∀)\s*([a-z][a-zA-Z0-9_']*)(?:\s+([a-z][a-zA-Z0-9_']*))*\s*(\.)</string>
+                    <key>captures</key>
+                    <dict>
+                        <key>1</key> <dict><key>name</key><string>keyword.other.forall.haskell</string></dict>
+                        <key>2</key> <dict><key>name</key><string>variable.other.generic-type.haskell</string></dict>
+                        <key>3</key> <dict><key>name</key><string>variable.other.generic-type.haskell</string></dict>
+                        <key>4</key> <dict><key>name</key><string>punctuation.other.haskell</string></dict>
+                    </dict>
                 </dict>
                 <dict>
                     <key>name</key>
