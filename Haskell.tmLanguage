@@ -176,6 +176,26 @@
         </dict>
         <dict>
             <key>name</key>
+            <string>meta.standalonederiving.haskell</string>
+            <key>begin</key>
+            <string>^\s*(deriving)\s+(instance)\b</string>
+            <key>beginCaptures</key>
+            <dict>
+                <key>1</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
+                <key>2</key> <dict><key>name</key><string>keyword.other.haskell</string></dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+                <dict>
+                    <key>include</key>
+                    <string>#type_signature</string>
+                </dict>
+            </array>
+            <key>end</key>
+            <string>$</string>
+        </dict>
+        <dict>
+            <key>name</key>
             <string>meta.deriving.haskell</string>
             <key>begin</key>
             <string>(deriving)\s*\(</string>
